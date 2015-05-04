@@ -3,6 +3,7 @@
  */
 package com.wegames.engine.graphics.ui;
 
+import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferInt;
 
@@ -47,5 +48,12 @@ public class UI {
 			}
 			System.out.println(display.map.getTileAtLocation(new Vector2D(display.mouse.clickX, display.mouse.clickY)));
 		}
+		if (display.mouse.button[MouseEvent.BUTTON3]) {
+			toggleSollectionMenu();
+		}
+	}
+
+	private void toggleSollectionMenu() {
+		
 	}
 }
