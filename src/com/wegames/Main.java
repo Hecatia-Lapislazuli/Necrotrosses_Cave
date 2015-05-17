@@ -28,10 +28,6 @@ public class Main extends Display {
 	 * @param args
 	 */
 	public static void main(String[] args) throws Exception {
-		
-		FileOutputStream stream = new FileOutputStream(new File("test.txt"));
-		
-		
 		Sound[] sounds = new Sound[12];
 		for (int i = 0; i < sounds.length; i++)
 			sounds[i] = new Sound("res/bit" + i + ".wav");
