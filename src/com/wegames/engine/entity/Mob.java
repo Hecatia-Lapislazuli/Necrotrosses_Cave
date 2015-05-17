@@ -24,6 +24,8 @@ public class Mob extends Entity {
 	
 	public int[] curPathMap;
 	
+	public int sightRange = 64;
+	
 	/**
 	 * 
 	 */

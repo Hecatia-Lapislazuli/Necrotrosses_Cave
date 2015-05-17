@@ -13,6 +13,7 @@ import com.wegames.engine.graphics.Sprite;
 import com.wegames.engine.map.tiles.AirTile;
 import com.wegames.engine.map.tiles.MagmaTile;
 import com.wegames.engine.map.tiles.Tile;
+import com.wegames.engine.util.vector.Vector2D;
 
 /**
  * @author Lord Lucumnox
@@ -61,13 +62,25 @@ public abstract class Entity {
 		if(tile.getClass()==MagmaTile.class) return false;
 		return tileRect.intersects(getBoundery(xOff, yOff));
 	}
-	List<Entity> getEntities(Entity e, int radius) {
+	public static List<Entity> getEntities(Entity e, int radius) {
 		List<Entity> result = new ArrayList<Entity>();
 		for (int i = 0; i < entities.size(); i++) {
 			Entity entity = entities.get(i);
 			int x=entity.x, y=entity.y;
 			int dx=Math.abs(x-e.x);
 			int dy=Math.abs(y-e.y);
+			double distance=Math.sqrt((dx*dx)+(dy*dy));
+			if(distance<=radius)result.add(entity);
+		}
+		return result;
+	}
+	public static List<Entity> getEntities(Vector2D loc, int radius) {
+		List<Entity> result = new ArrayList<Entity>();
+		for (int i = 0; i < entities.size(); i++) {
+			Entity entity = entities.get(i);
+			int x=entity.x, y=entity.y;
+			int dx=Math.abs(x-loc.x);
+			int dy=Math.abs(y-loc.y);
 			double distance=Math.sqrt((dx*dx)+(dy*dy));
 			if(distance<=radius)result.add(entity);
 		}
